@@ -1,12 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Musician</title>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>The Musician</h1>
-    <p>Hello TEKA!</p>
+  <!-- SideBar -->
+  <div class="sidebar">
+    <!-- Profile -->
+      <header>
+        <div class="profile">
+          <span class="img">
+            <img src="TEKA.jpg" alt="Profile photo">
+          </span>
+          <div class="profile-text">
+            <span class="name">@TEKA_25</span>
+            <span class="fullname">Patrick Sheref</span>
+          </div>
+        </div>
+      </header>
+      <hr> 
+      <br>
+      <ul class="menu">
+        <li>
+          <a href="../index.html">
+            <i class="material-icons">home</i>
+            <span>Home</span>
+          </a>
+        </li>
+        <br>
+        <li>
+          <a href="../Music/index.html">
+            <i class="material-icons">music_note</i>
+            <span>Music</span>
+          </a>
+        </li>
+        <br>
+        <li>
+          <a href="../Al7an/index.html">
+            <i class="material-icons">church</i>
+            <span>Al7an</span>
+          </a>
+        </li>
+        <br>
+        <li>
+          <a href="../Notes/index.html">
+            <i class="material-icons">notes</i>
+            <span>Notes</span>
+          </a>
+        </li>
+        <br>
+        <li>
+          <a href="../settings.html">
+            <i class="material-icons">settings</i>
+            <span>Settings</span>
+          </a>
+        </li>
+        <br>
+        <div class="bottom-menu">
+          <li class="collapse">
+            <i class="material-icons">chevron_right</i>
+            <span id="collapse">Collapse</span>
+          </li>
+          <br>
+          <!-- The Switch --> 
+          <div class="container">
+            <i class="material-icons"></i>
+            <span class="checkbox-text" style="font-size: 20px;">Dark Mode</span>
+            <input type="checkbox" name="checkbox" id="checkbox" class="checkbox">
+            <label for="checkbox" class="label"> </label>        
+          </div>
+        </div>
+      </div>
+  </div>
+  
+  <script src="script.js"></script>
 </body>
 </html>
