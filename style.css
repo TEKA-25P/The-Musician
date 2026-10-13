@@ -38,6 +38,11 @@ iframe {
     margin-top: 50px;
 }
 
+li a {
+    text-decoration: none;
+    color: #fff;
+}
+    
 nav {
     display: flex;
     justify-content: center;
