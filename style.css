@@ -7,14 +7,14 @@
 body {
     margin: 10px;
     padding: 10px;
-    background-color: #111;
+    background-color: #000;
     color: #fff;
 }
 
 h1 {
     text-align: center;
-    color: #fff;
     text-decoration: underline;
+    font-style: italic;
 }
 
 .header {
@@ -38,16 +38,11 @@ iframe {
     margin-top: 50px;
 }
 
-li a {
-    text-decoration: none;
-    color: #fff;
-}
-    
 nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 50px;
     margin-top: 200px;
 }
 
@@ -71,4 +66,137 @@ nav a:hover {
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
     background-color: #0ff;
     transition: 0.4s ease;
+}
+
+.sheet {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 50px;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100%;
+  min-height: 150px;
+  max-height: 550px;
+  font-size: 20px;
+}
+
+.sheet div {
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.sheet .notes {
+  order: 0;
+  height: 5px;
+  margin-top: 10px;
+  margin-bottom: -15px;
+}
+
+.sheet .R.H {
+  order: 1;
+}
+
+.sheet .lyrics {
+  font-family: "Caveat", cursive;
+  height: 15px;
+  margin-top: -100px;
+  order: 2;
+}
+
+.sheet .lyrics span {
+  text-align: right;
+}
+
+.sheet .L.H {
+  order: 3;
+}
+
+.sheet div span {
+  flex: 0 0 auto;
+  width: 25px;
+  text-align: center;
+}
+
+.sheet div .title {
+  width: 55px;
+  font-weight: 800;
+  text-decoration-line: underline;
+}
+
+.sheet div .chord {
+  display: flex;
+  flex-direction: column;
+  margin-top: -20px;
+}
+
+.sheet div .bar {
+  font-weight: 600;
+}
+
+.sheet div .four-notes {
+  font-family: "Caveat", cursive;
+  text-align: left;
+  width: 320px;
+}
+
+.sheet div .two-doted-note {
+  font-family: "Caveat", cursive;
+  text-align: left;
+  width: 240px;
+}
+
+.sheet div .two-notes {
+  font-family: "Caveat", cursive;
+  text-align: left;
+  width: 160px;
+}
+
+.sheet div .doted-note {
+  font-family: "Caveat", cursive;
+  text-align: left;
+  width: 120px;
+}
+
+.sheet div .note {
+  font-family: "Caveat", cursive;
+  text-align: left;
+  width: 80px;
+}
+
+.sheet div .half-doted-note {
+  font-family: "Caveat", cursive;
+  text-align: left;
+  width: 60px;
+}
+
+.sheet div .half-note {
+  font-family: "Caveat", cursive;
+  text-align: left;
+  width: 40px;
+}
+
+.sheet div .quarter-doted-note {
+  font-family: "Caveat", cursive;
+  text-align: left;
+  width: 30px;
+}
+
+.sheet div .quarter-note {
+  font-family: "Caveat", cursive;
+  text-align: left;
+  width: 20px;
+}
+
+.key {
+  color: yellow;
+}
+
+.font {
+  font-family: "Caveat", cursive;
+}
+
+p {
+  font-size: 20px;
 }
