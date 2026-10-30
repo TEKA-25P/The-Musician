@@ -206,3 +206,36 @@ nav a:hover {
   font-family: "Caveat", cursive;
 }
 
+/*THE PDF VIEWER*/
+.pdf-viewer-container {
+    width: 100%;
+    max-width: 800px;
+    height: 600px;
+    margin: 20px auto;
+    overflow-y: auto;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.pdf-page-canvas {
+    display: block;
+    margin: 10px auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    max-width: 100%;
+    height: auto !important;
+}
+
+.pdf-loading, .pdf-error {
+    text-align: center;
+    padding: 40px;
+    font-family: sans-serif;
+    color: #555;
+}
+
+.pdf-error {
+    color: #d9534f;
+}
