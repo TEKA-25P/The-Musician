@@ -205,7 +205,7 @@ nav a:hover {
 .pdf-viewer-container {
     width: 100%;
     max-width: 800px;
-    height: 600px;
+    height: auto;
     margin: 20px auto;
     overflow-y: auto;
     background-color: #f0f0f0;
