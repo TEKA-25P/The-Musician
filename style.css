@@ -247,14 +247,11 @@ nav a:hover {
     z-index: -1;
 }
 
-.music-note {
+.note-1 {
     position: absolute;
     font-size: 3rem;
     opacity: 0.25;
     animation: floatNote 6s ease-in-out infinite alternate;
-}
-
-.note-1 {
     top: 15%;
     left: 10%;
     color: #8b5cf6;
@@ -263,6 +260,10 @@ nav a:hover {
 }
 
 .note-2 {
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0.25;
+    animation: floatNote 6s ease-in-out infinite alternate;
     top: 60%;
     left: 20%;
     color: #06b6d4;
@@ -272,6 +273,10 @@ nav a:hover {
 }
 
 .note-3 {
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0.25;
+    animation: floatNote 6s ease-in-out infinite alternate;
     top: 25%;
     right: 15%;
     color: #ec4899;
@@ -281,6 +286,10 @@ nav a:hover {
 }
 
 .note-4 {
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0.25;
+    animation: floatNote 6s ease-in-out infinite alternate;
     top: 75%;
     right: 25%;
     color: #10b981;
@@ -289,6 +298,10 @@ nav a:hover {
 }
 
 .note-5 {
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0.25;
+    animation: floatNote 6s ease-in-out infinite alternate;
     top: 40%;
     left: 50%;
     color: #f59e0b; 
