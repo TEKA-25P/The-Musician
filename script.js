@@ -69,3 +69,36 @@
         });
     }
 })();
+
+document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const sheetCards = document.querySelectorAll('.sheet-card');
+
+    // Optional: Ensure cards match the initial active button ("piano") on load
+    const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+    sheetCards.forEach(card => {
+        if (card.getAttribute('data-category') !== activeFilter) {
+            card.classList.add('hide');
+        }
+    });
+
+    // Click event listeners for switching tabs
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const filterValue = button.getAttribute('data-filter');
+
+            sheetCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+
+                if (cardCategory === filterValue) {
+                    card.classList.remove('hide');
+                } else {
+                    card.classList.add('hide');
+                }
+            });
+        });
+    });
+});
