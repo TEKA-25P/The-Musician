@@ -7,6 +7,42 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+    
+    <div class="header">
+        <a class="back" href="../sheets.html">&crarr;</a>
+        <h1>Khaly Balak Men Aglak</h1>
+        <i></i>
+    </div>
+    <!-- Filter Buttons (Piano is active by default) -->
+    <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="piano">Piano Sheets</button>
+        <button class="filter-btn" data-filter="written">Written Sheets</button>
+        <button class="filter-btn" data-filter="guitar">Guitar Sheets</button>
+    </div>
+    <!-- Sheets Grid -->
+    <div class="sheets-grid">
+        <!-- Written Sheet  -->
+        <div class="sheet-card sheet hide" data-category="written">
+            <div class="card-icon">📄
+                <h2>Written Sheet</h2>
+            </div>
+            <p>This isn't available now.</p>
+        </div>
+        <!-- Piano Sheet -->
+        <div class="sheet-card"  data-category="piano">
+            <div class="card-icon">🎹
+                <h2>Piano Sheet</h2>
+            </div>
+            <div class="pdf-viewer" data-pdf="../Sheets_Data/Khaly_Balak_Men_Aglak_(piano).pdf"></div>
+        </div>
+        <!-- Guitar Sheet -->
+        <div class="sheet-card hide" data-category="guitar">
+            <div class="card-icon">🎸
+                <h2>Guitar Sheet</h2>
+            </div>
+            <p>This isn't available now.</p>
+        </div>
+    </div>
     <div class="music-notes-container">
         <span class="note note-1">♪</span>
         <span class="note note-2">♫</span>
@@ -14,18 +50,6 @@
         <span class="note note-4">♬</span>
         <span class="note note-5">♭</span>
     </div>
-    <div class="header">
-        <a class="back" href="../sheets.html">&crarr;</a>
-        <h1>Khaly Balak Men Aglak</h1>
-        <i></i>
-    </div>
-    <a href="#PS">Piano Sheet</a>
-    <br><hr><br>
-
-    <br><hr><br>
-    <h2 id="PS">Piano Sheet</h2>
-    <div class="pdf-viewer" data-pdf="../Sheets_Data/Khaly_Balak_Men_Aglak_(piano).pdf"></div>
-    <br><hr><br>
     <script src="../script.js"></script>
 </body>
 </html>
