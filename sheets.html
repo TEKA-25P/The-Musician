@@ -5,25 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sheets Menu</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="header">
-        <span class="material-symbols-outlined"></span>
+        <a href="index.html"><span class="material-symbols-outlined">arrow_back</span></a>
         <h1>Sheet Music</h1>
-        <a class="back" href="index.html"><span class="material-symbols-outlined">home</span></a>
+        <div class="header-actions">
+            <a href="about.html"><span class="material-symbols-outlined">help</span></a>
+        </div>
     </div>
-    <ul>
-        <li><a href="Sheets/Aziza.html">Aziza</a></li>
-        <li><a href="Sheets/Eslami_Ya_Misr.html">Eslami Ya Misr</a></li>
-        <li><a href="Sheets/Kadiet_Am_Ahmed.html">Kadiet Am Ahmed</a></li>
-        <li><a href="Sheets/Khaly_Balak_Men_Aglak.html">Khaly Balak Men Aglak</a></li>
-        <li><a href="Sheets/Kol_Sana.html">Kol Sana</a></li>
-        <li><a href="Sheets/Lullaby.html">Lullaby</a></li>
-        <li><a href="Sheets/Saher_El-Lialy.html">Saher El-Lialy</a></li>
-        <li><a href="Sheets/Secret_Garden.html">Secret Garden</a></li>
-        <li><a href="Sheets/Super_Mario.html">Super Mario</a></li>
-        <li><a href="Sheets/UP.html">UP</a></li>
-    </ul>
+    <main class="sheet-library">
+        <h1 class="sheet-library-title">Sheet Music</h1>
+        <ul class="sheet-folder-grid">
+            <li><a class="sheet-folder" href="Sheets/Aziza.html"><span class="sheet-folder-icon" aria-hidden="true">🎵</span><span class="sheet-folder-title">Aziza</span></a></li>
+            <li><a class="sheet-folder" href="Sheets/Eslami_Ya_Misr.html"><span class="sheet-folder-icon" aria-hidden="true">🎵</span><span class="sheet-folder-title">Eslami Ya Misr</span></a></li>
+            <li><a class="sheet-folder" href="Sheets/Kadiet_Am_Ahmed.html"><span class="sheet-folder-icon" aria-hidden="true">🎵</span><span class="sheet-folder-title">Kadiet Am Ahmed</span></a></li>
+            <li><a class="sheet-folder" href="Sheets/Khaly_Balak_Men_Aglak.html"><span class="sheet-folder-icon" aria-hidden="true">🎵</span><span class="sheet-folder-title">Khaly Balak Men Aglak</span></a></li>
+            <li><a class="sheet-folder" href="Sheets/Kol_Sana.html"><span class="sheet-folder-icon" aria-hidden="true">🎵</span><span class="sheet-folder-title">Kol Sana</span></a></li>
+            <li><a class="sheet-folder" href="Sheets/Lullaby.html"><span class="sheet-folder-icon" aria-hidden="true">🎵</span><span class="sheet-folder-title">Lullaby</span></a></li>
+            <li><a class="sheet-folder" href="Sheets/Saher_El-Lialy.html"><span class="sheet-folder-icon" aria-hidden="true">🎵</span><span class="sheet-folder-title">Saher El-Lialy</span></a></li>
+            <li><a class="sheet-folder" href="Sheets/Secret_Garden.html"><span class="sheet-folder-icon" aria-hidden="true">🎵</span><span class="sheet-folder-title">Secret Garden</span></a></li>
+            <li><a class="sheet-folder" href="Sheets/Super_Mario.html"><span class="sheet-folder-icon" aria-hidden="true">🎵</span><span class="sheet-folder-title">Super Mario</span></a></li>
+            <li><a class="sheet-folder" href="Sheets/UP.html"><span class="sheet-folder-icon" aria-hidden="true">🎵</span><span class="sheet-folder-title">UP</span></a></li>
+        </ul>
+    </main>
     <div class="music-notes-container">
         <span class="note note-1">♪</span>
         <span class="note note-2">♫</span>
