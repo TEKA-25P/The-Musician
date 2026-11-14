@@ -37,6 +37,143 @@ p {
   height: 100px;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  width: 100%;
+  padding: 14px 24px;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.site-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+.site-nav .site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.site-nav .site-brand-clef {
+  color: #67e8f9;
+  font-size: 40px;
+  text-shadow: 0 0 24px rgba(103, 232, 249, 0.42);
+}
+
+.site-brand-clef {
+  font-family: "Segoe UI Symbol", "Noto Music", serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.site-brand-word {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.site-brand-music {
+  color: #c4b5fd;
+}
+
+.site-brand-note {
+  margin-left: 3px;
+  color: #67e8f9;
+  font-family: "Segoe UI Symbol", "Noto Music", serif;
+  font-size: 0.9em;
+  text-shadow: 0 0 18px rgba(103, 232, 249, 0.42);
+  vertical-align: 0.08em;
+}
+
+.site-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  color: #cbd5e1;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.site-nav .site-nav-links a,
+.site-nav .site-nav-mobile a {
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+.site-nav .site-nav-links a:hover,
+.site-nav .site-nav-mobile a:hover,
+.site-nav .site-nav-links a[aria-current="page"] {
+  color: #22d3ee;
+}
+
+.site-nav .site-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  color: #a5f3fc;
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.site-nav .site-nav-cta i,
+.site-nav .site-nav-mobile-cta i {
+  color: #34d399;
+}
+
+.site-nav .site-nav-cta:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(6, 182, 212, 0.5);
+}
+
+.site-nav-toggle {
+  display: none;
+  border: 0;
+  padding: 6px;
+  color: #cbd5e1;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.site-nav-mobile {
+  display: none;
+}
+
+.site-nav-spacer {
+  height: 100px;
+}
+
 .header a {
   text-align: left;
   text-decoration: none;
@@ -68,6 +205,11 @@ p {
   height: 5px;
   margin-top: 10px;
   margin-bottom: -15px;
+}
+
+.sheet .notes span {
+  text-align: right;
+  font-weight: 600;
 }
 
 .sheet .R.H {
@@ -183,7 +325,7 @@ p {
 
 /* Hover state */
 .material-symbols-outlined:hover {
-  transform: scale(1.2);
+  transform: scale(1.5);
 }
 
 /*THE PDF VIEWER*/
@@ -347,29 +489,33 @@ p {
 
 /* Container holding all cards */
 .sheets-grid {
-    display: grid;
-    /* Auto-fit columns with a minimum width of 340px */
-    grid-template-columns: repeat(auto-fit, minmax(340px, 450px));
-    justify-content: center; /* Centers cards horizontally on the screen */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
     gap: 25px;
-    width: 100%;
-    padding: 0 30px 50px 30px;
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    padding-bottom: 50px;
     box-sizing: border-box;
 }
 
-/* Written sheets take full-width across all columns */
+/* Written sheets span the full flex row */
 .sheet-card[data-category="written"] {
-    grid-column: 1 / -1;
-    max-width: 100%;
+    flex: 0 0 100%;
     width: 100%;
+    max-width: none;
     height: 700px;
 }
 
 /* Piano and Guitar cards stay compact */
 .sheet-card[data-category="piano"],
 .sheet-card[data-category="guitar"] {
+    flex: 0 1 450px;
     width: 100%;
     max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
     box-sizing: border-box;
 }
 
@@ -405,4 +551,408 @@ p {
     display: none;
     opacity: 0;
     transform: scale(0.95);
+}
+
+@media (max-width: 760px) {
+    .site-nav {
+        padding: 12px 16px;
+    }
+
+    .site-nav-links,
+    .site-nav .site-nav-cta {
+        display: none;
+    }
+
+    .site-nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .site-nav-mobile.is-open {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        text-align: center;
+        color: #cbd5e1;
+    }
+
+    .site-nav .site-nav-mobile a {
+        padding: 8px 12px;
+    }
+
+    .site-nav .site-nav-mobile .site-nav-mobile-cta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 12px;
+        color: #a7f3d0;
+        background: rgba(16, 185, 129, 0.1);
+    }
+}
+
+.about-page main h1 {
+    font-family: "Times New Roman", serif;
+    text-decoration: none;
+    font-style: normal;
+}
+
+.about-page main .about-name {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(3.25rem, 8vw, 5rem);
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 1.2;
+}
+
+.home-page {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background:
+        radial-gradient(ellipse at 50% 45%, rgba(39, 38, 79, 0.42), transparent 58%),
+        #0b0d17;
+    font-family: "DM Sans", sans-serif;
+}
+
+.home-page .home-welcome {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    min-height: calc(100vh - 100px);
+    min-height: calc(100svh - 100px);
+    place-items: center;
+    padding: 36px 24px 64px;
+}
+
+.welcome-card {
+    position: relative;
+    isolation: isolate;
+    width: min(100%, 900px);
+    padding: clamp(38px, 8vw, 84px) clamp(24px, 8vw, 90px);
+    overflow: hidden;
+    border: 1px solid rgba(193, 181, 255, 0.18);
+    border-radius: 32px;
+    background: linear-gradient(145deg, rgba(30, 34, 57, 0.82), rgba(17, 20, 36, 0.72));
+    box-shadow: 0 32px 90px rgba(0, 0, 0, 0.42), inset 0 1px rgba(255, 255, 255, 0.06);
+    text-align: center;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.welcome-card::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(139, 92, 246, 0.16), transparent 62%);
+    content: "";
+}
+
+.welcome-orbit {
+    position: absolute;
+    z-index: -1;
+    width: 250px;
+    height: 250px;
+    border: 1px solid rgba(125, 211, 252, 0.09);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.welcome-orbit-one {
+    top: -180px;
+    left: -100px;
+}
+
+.welcome-orbit-two {
+    right: -120px;
+    bottom: -190px;
+    width: 320px;
+    height: 320px;
+    border-color: rgba(192, 132, 252, 0.1);
+}
+
+.welcome-content {
+    position: relative;
+    max-width: 660px;
+    margin: 0 auto;
+}
+
+.welcome-eyebrow {
+    margin-bottom: 30px;
+    color: #b7c4e0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    line-height: 1.8;
+    text-transform: uppercase;
+}
+
+.welcome-eyebrow span {
+    padding: 0 8px;
+    color: #67e8f9;
+}
+
+.welcome-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(12px, 3vw, 25px);
+}
+
+.welcome-clef {
+    color: #67e8f9;
+    font-family: "Segoe UI Symbol", "Noto Music", serif;
+    font-size: clamp(64px, 13vw, 112px);
+    line-height: 1;
+    text-shadow: 0 0 38px rgba(103, 232, 249, 0.42);
+}
+
+.welcome-brand h1 {
+    color: #f8fafc;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(38px, 8vw, 76px);
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.welcome-brand h1 > span:first-child {
+    color: #c4b5fd;
+}
+
+.welcome-brand .welcome-note {
+    display: inline-block;
+    margin-left: 6px;
+    color: #67e8f9;
+    font-family: "Segoe UI Symbol", "Noto Music", serif;
+    font-size: 0.9em;
+    text-shadow: 0 0 24px rgba(103, 232, 249, 0.42);
+    vertical-align: 0.08em;
+}
+
+.welcome-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 30px auto 24px;
+    color: #a78bfa;
+}
+
+.welcome-divider span {
+    width: min(22vw, 110px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.6));
+}
+
+.welcome-divider span:last-child {
+    transform: rotate(180deg);
+}
+
+.welcome-divider i {
+    font-size: 17px;
+    font-style: normal;
+}
+
+.welcome-description {
+    max-width: 610px;
+    margin: 0 auto;
+    color: #d3d9e8;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(17px, 2.4vw, 21px);
+    line-height: 1.85;
+}
+
+.welcome-signature {
+    margin-top: 20px;
+    color: #9da9c5;
+    font-size: 13px;
+    font-style: italic;
+    letter-spacing: 0.06em;
+}
+
+.welcome-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 34px;
+}
+
+.welcome-button {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 21px;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.welcome-button:hover {
+    transform: translateY(-2px);
+}
+
+.welcome-button:focus-visible {
+    outline: 2px solid #67e8f9;
+    outline-offset: 4px;
+}
+
+.welcome-button-primary {
+    color: #08111d;
+    background: linear-gradient(110deg, #67e8f9, #a5b4fc);
+    box-shadow: 0 10px 28px rgba(103, 232, 249, 0.18);
+}
+
+.welcome-button-primary:hover {
+    box-shadow: 0 14px 34px rgba(103, 232, 249, 0.28);
+}
+
+.welcome-button-secondary {
+    border-color: rgba(203, 213, 225, 0.2);
+    color: #e2e8f0;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.welcome-button-secondary:hover {
+    border-color: rgba(167, 139, 250, 0.55);
+    background: rgba(167, 139, 250, 0.08);
+}
+
+@media (max-width: 520px) {
+    .home-page .home-welcome {
+        padding: 24px 16px 40px;
+    }
+
+    .welcome-card {
+        padding: 42px 22px;
+        border-radius: 24px;
+    }
+
+    .welcome-eyebrow {
+        margin-bottom: 24px;
+        font-size: 9px;
+        letter-spacing: 0.14em;
+    }
+
+    .welcome-brand {
+        gap: 10px;
+    }
+
+    .welcome-actions {
+        flex-direction: column;
+    }
+}
+
+.glass-card {
+    background: rgba(30, 41, 59, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #38bdf8 0%, #a855f7 50%, #ec4899 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sheet-library {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 1100px);
+    margin: 0 auto;
+    padding: 24px 12px 50px;
+}
+
+.sheet-library-title {
+    margin-bottom: 32px;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.sheet-folder-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.sheet-folder {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    min-height: 170px;
+    padding: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    color: #f3f4f6;
+    background: rgba(17, 24, 39, 0.62);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sheet-folder:hover {
+    transform: translateY(-5px);
+    border-color: rgba(139, 92, 246, 0.55);
+    background: rgba(30, 41, 59, 0.78);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35), 0 0 24px rgba(139, 92, 246, 0.12);
+}
+
+.sheet-folder:focus-visible {
+    outline: 2px solid #22d3ee;
+    outline-offset: 3px;
+}
+
+.sheet-folder-icon {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 14px;
+    background: rgba(139, 92, 246, 0.14);
+    font-size: 27px;
+}
+
+.sheet-folder-title {
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #334155;
 }
