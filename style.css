@@ -328,7 +328,7 @@ p {
   transform: scale(1.5);
 }
 
-/*THE PDF VIEWER*/
+/* Sheet PDF viewer */
 .pdf-viewer-container {
     width: 100%;
     max-width: 800px;
@@ -363,7 +363,7 @@ p {
     color: #d9534f;
 }
 
-/*MUSIC BACKGROUND*/
+/* Animated music background */
 .music-notes-container {
     position: fixed;
     top: 0;
@@ -449,7 +449,7 @@ p {
     }
 }
 
-/* Filter Buttons Container */
+/* Sheet category filters */
 .filter-buttons {
     display: flex;
     justify-content: center;
@@ -460,7 +460,6 @@ p {
     z-index: 2;
 }
 
-/* Filter Button Styling */
 .filter-btn {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -479,7 +478,6 @@ p {
     transform: translateY(-2px);
 }
 
-/* Active Filter Button */
 .filter-btn.active {
     background: linear-gradient(135deg, #8b5cf6, #3b82f6);
     color: #ffffff;
@@ -487,7 +485,6 @@ p {
     box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
 }
 
-/* Container holding all cards */
 .sheets-grid {
     display: flex;
     flex-wrap: wrap;
@@ -500,7 +497,6 @@ p {
     box-sizing: border-box;
 }
 
-/* Written sheets span the full flex row */
 .sheet-card[data-category="written"] {
     flex: 0 0 100%;
     width: 100%;
@@ -508,24 +504,11 @@ p {
     height: 700px;
 }
 
-/* Piano and Guitar cards stay compact */
-.sheet-card[data-category="piano"],
-.sheet-card[data-category="guitar"] {
-    flex: 0 1 450px;
-    width: 100%;
-    max-width: 450px;
-    margin-left: auto;
-    margin-right: auto;
-    box-sizing: border-box;
-}
-
-/* 2. Ensure the container holding the grid also takes full width */
 .sheets-container {
     width: 100%;
     box-sizing: border-box;
 }
 
-/* 3. Make sure individual cards stretch properly */
 .sheet-card {
     background: rgba(17, 24, 39, 0.7);
     backdrop-filter: blur(12px);
@@ -538,6 +521,191 @@ p {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 1;
     transform: scale(1);
+}
+
+.sheet-card[data-category="piano"],
+.sheet-card[data-category="guitar"] {
+    flex: 0 1 450px;
+    width: 100%;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Per-sheet theme and MIDI controls */
+.sheet-controls {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin: 18px 0;
+}
+
+.sheet-theme-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #cbd5e1;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.sheet-theme-select {
+    min-height: 40px;
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 10px;
+    color: #e2e8f0;
+    background: #111827;
+    cursor: pointer;
+    font: inherit;
+}
+
+.sheet-theme-select option {
+    color: #e2e8f0;
+    background: #111827;
+}
+
+.sheet-audio-container {
+    position: relative;
+    z-index: 1;
+    width: min(calc(100% - 32px), 950px);
+    margin: 28px auto 60px;
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    color: #f3f4f6;
+    background: rgba(17, 24, 39, 0.82);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(12px);
+}
+
+.sheet-audio-container h2 {
+    margin-bottom: 8px;
+    font-size: 24px;
+    font-style: normal;
+    text-align: left;
+    text-decoration: none;
+}
+
+.sheet-audio-description {
+    margin: 0;
+    color: #aebbd2;
+    font-size: 14px;
+}
+
+.sheet-audio-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 12px;
+    margin: 20px 0 16px;
+}
+
+.sheet-audio-instrument-control {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #cbd5e1;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.sheet-audio-instrument-select {
+    min-width: 220px;
+    min-height: 42px;
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 10px;
+    color: #e2e8f0;
+    background: #111827;
+    font: inherit;
+}
+
+.sheet-audio-instrument-select option {
+    color: #e2e8f0;
+    background: #111827;
+}
+
+.sheet-audio-play-button {
+    min-height: 42px;
+    padding: 8px 18px;
+    border: 1px solid rgba(103, 232, 249, 0.4);
+    border-radius: 10px;
+    color: #08111d;
+    background: linear-gradient(110deg, #67e8f9, #a5b4fc);
+    box-shadow: 0 6px 18px rgba(103, 232, 249, 0.14);
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sheet-audio-play-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 9px 24px rgba(103, 232, 249, 0.24);
+}
+
+.sheet-audio-play-button:focus-visible,
+.sheet-audio-instrument-select:focus-visible,
+.sheet-theme-select:focus-visible {
+    outline: 2px solid #67e8f9;
+    outline-offset: 3px;
+}
+
+.sheet-audio-play-button:disabled,
+.sheet-audio-instrument-select:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}
+
+.sheet-audio-progress-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.sheet-audio-progress {
+    flex: 1 1 auto;
+    width: 100%;
+    height: 12px;
+    accent-color: #22d3ee;
+}
+
+.sheet-audio-time {
+    min-width: 100px;
+    color: #cbd5e1;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+}
+
+.sheet-audio-status {
+    min-height: 1.4em;
+    margin: 12px 0 0;
+    color: #aebbd2;
+    font-size: 13px;
+}
+
+@media (max-width: 520px) {
+    .sheet-audio-container {
+        padding: 20px;
+    }
+
+    .sheet-audio-controls {
+        align-items: stretch;
+    }
+
+    .sheet-audio-instrument-control,
+    .sheet-audio-play-button {
+        width: 100%;
+    }
+
+    .sheet-audio-instrument-select {
+        width: 100%;
+        min-width: 0;
+    }
 }
 
 .sheet-card:hover {
